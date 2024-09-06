@@ -2,6 +2,8 @@
 
 ### Network Policy
 
+![network policies](resources/kubernetes-ckad-network-policies-9.jpg)
+
 ```yaml
 apiVersion: v1
 items:
