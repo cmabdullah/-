@@ -54,6 +54,9 @@ spec:
 
 ### Persistent Volume Claim
 
+![PV-PVC-POD](resources/pv-pvc.png)
+
+
 ```yaml
 apiVersion: v1
 kind: PersistentVolumeClaim
