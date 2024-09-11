@@ -35,3 +35,55 @@ items:
     - Egress
     - Ingress
 ```
+
+### Persistent Volume
+
+```yaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-log
+spec:
+  accessModes:
+    - ReadWriteMany
+  capacity:
+    storage: 100Mi
+  hostPath:
+    path: /pv/log
+```
+
+### Persistent Volume Claim
+
+```yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: claim-log-1
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 50Mi
+```
+
+### Mount Volume with Pod
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: webapp
+spec:
+  containers:
+  - image: kodekloud/event-simulator
+    imagePullPolicy: Always
+    name: event-simulator
+    volumeMounts:
+    - mountPath: /log
+      name: app-log
+  volumes:
+  - persistentVolumeClaim:
+      claimName: claim-log-1
+    name: app-log
+```
