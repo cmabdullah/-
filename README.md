@@ -90,3 +90,15 @@ spec:
       claimName: claim-log-1
     name: app-log
 ```
+
+
+
+OUT OF SYLLABUS
+
+Static Provisioning
+![Static Provisioning](resources/static-provisioning.png)
+
+
+Dynamic Provisioning
+![Dynamic Provisioning](resources/dynamic-provisioning.png)
+
