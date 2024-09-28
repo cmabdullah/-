@@ -102,3 +102,41 @@ Static Provisioning
 Dynamic Provisioning
 ![Dynamic Provisioning](resources/dynamic-provisioning.png)
 
+# Security
+
+##### kubeconfig file
+location .kube directory
+```yaml
+apiVersion: v1
+clusters:
+  - cluster:
+      certificate-authority-data: dummydata
+      server: https://0.0.0.0:49621
+    name: k3d-mycluster
+  - cluster:
+      certificate-authority-data: dummydata
+      server: https://127.0.0.1:26443
+    name: orbstack
+contexts:
+  - context:
+      cluster: k3d-mycluster
+      user: admin@k3d-mycluster
+    name: k3d-mycluster
+  - context:
+      cluster: orbstack
+      user: orbstack
+    name: orbstack
+current-context: orbstack
+kind: Config
+preferences: {}
+users:
+  - name: admin@k3d-mycluster
+    user:
+      client-certificate-data: abcdummy
+      client-key-data: dummydata
+  - name: orbstack
+    user:
+      client-certificate-data: dummydata
+      client-key-data: dummydata
+```
+
