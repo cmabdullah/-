@@ -140,3 +140,5 @@ users:
       client-key-data: dummydata
 ```
 
+
+> k config view
