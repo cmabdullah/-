@@ -108,14 +108,17 @@ Dynamic Provisioning
 location .kube directory
 ```yaml
 apiVersion: v1
+current-context: orbstack
+kind: Config
+preferences: {}
 clusters:
   - cluster:
       certificate-authority-data: dummydata
-      server: https://0.0.0.0:49621
+      server: https://0.0.0.0:49630
     name: k3d-mycluster
   - cluster:
       certificate-authority-data: dummydata
-      server: https://127.0.0.1:26443
+      server: https://127.0.0.1:26444
     name: orbstack
 contexts:
   - context:
@@ -126,9 +129,6 @@ contexts:
       cluster: orbstack
       user: orbstack
     name: orbstack
-current-context: orbstack
-kind: Config
-preferences: {}
 users:
   - name: admin@k3d-mycluster
     user:
